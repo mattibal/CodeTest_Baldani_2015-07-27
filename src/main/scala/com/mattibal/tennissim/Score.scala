@@ -51,13 +51,11 @@ object Score {
  * An immutable representation of the score of a player in a tennis game
  *
  * @param number the player score represented as the number of points it won
- * @param other the PlayerScore of the other player that this is playing with. Note that this is a circular reference!
+ * @param otherPlayer the PlayerScore of the other player that this is playing with. Note that this is a circular reference.
  */
-case class PlayerScore(number: Int)(other: => PlayerScore) {
+case class PlayerScore(number: Int)(otherPlayer: => PlayerScore) {
 
   require(number >= 0, "the player score can't be negative")
-
-  lazy val otherPlayer = other // an hacky way to get circular references working...
 
   /**
    * Return a string of the term used in tennis to indicate a certain score, if any, otherwise the score number
