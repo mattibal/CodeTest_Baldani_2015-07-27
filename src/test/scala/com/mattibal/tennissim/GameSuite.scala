@@ -1,7 +1,5 @@
 package com.mattibal.tennissim
 
-import java.io.ByteArrayOutputStream
-
 import org.scalatest.FunSuite
 
 import scala.util.Random
@@ -9,11 +7,12 @@ import scala.util.Random
 
 class GameSuite extends FunSuite {
 
-  test("A Game using a Random with a fixed seed, should always proceed in the same way"){
+  test("The score of a Game using a Random with a fixed seed, should always evolve in the same way"){
 
-    val seed = 43242
+    val seed = 43242 // this seed will determine how the game will evolve
     val game = new Game(new Random(seed))
 
+    // Check if the score after each point is what we are expecting with the fixed seed we used.
     assert(game.score.textRepresentation == "love - love")
     game.playPoint()
     assert(game.score.textRepresentation == "love - fifteen")
