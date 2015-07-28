@@ -24,7 +24,7 @@ class Game(randGen: Random = Random) {
   }
   
   
-  private def playPoint() = {
+  def playPoint() = {
     score = randGen.nextBoolean() match {
       case true => score.incrementPlayerAScore
       case false => score.incrementPlayerBScore
