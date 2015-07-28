@@ -75,8 +75,8 @@ case class PlayerScore(number: Int)(other: => PlayerScore) {
    */
   def textRepresentation : String = {
     if(isPlayerWinner) return "Win!"
-    if(isPlayerInAdvantage) return "Advantage"
-    if(isScoreDeuce) return "Deuce"
+    if(isPlayerInAdvantage) return "advantage"
+    if(isScoreDeuce) return "deuce"
     tennisJargonNumber
   }
 
